@@ -1,23 +1,23 @@
 ﻿using System;
-
 namespace HundoDataStructure.Nodes
 {
-    public class BinaryTreeNode<T> : INode<T>
+    public class BinaryTreeNode<TKey,TValue> : INode<TKey,TValue>
     {
-        public T Value { get; set; }
-        private BinaryTreeNode<T> _parent;
-        private BinaryTreeNode<T> _leftNode;
-        private BinaryTreeNode<T> _rightNode;
+        public TValue Value { get; set; }
+        public TKey Key { get; set; }
+        private BinaryTreeNode<TKey,TValue> _parent;
+        private BinaryTreeNode<TKey, TValue> _leftNode;
+        private BinaryTreeNode<TKey, TValue> _rightNode;
 
         /// <summary>
         /// 根節點
         /// </summary>
-        public BinaryTreeNode<T> Parent { get => _parent; set => _parent = value; }
+        public BinaryTreeNode<TKey, TValue> Parent { get => _parent; set => _parent = value; }
 
         /// <summary>
         /// 左節點
         /// </summary>
-        public BinaryTreeNode<T> LeftChild
+        public BinaryTreeNode<TKey, TValue> LeftChild
         {
             get
             {
@@ -33,7 +33,7 @@ namespace HundoDataStructure.Nodes
         /// <summary>
         /// 右節點
         /// </summary>
-        public BinaryTreeNode<T> RightChild 
+        public BinaryTreeNode<TKey, TValue> RightChild 
         { 
             get
             {
@@ -71,7 +71,7 @@ namespace HundoDataStructure.Nodes
         /// <summary>
         /// 取得兄弟節點
         /// </summary>
-        public BinaryTreeNode<T> Sibiling {
+        public BinaryTreeNode<TKey,TValue> Sibiling {
             get
             {
                 if (_parent.LeftChild == this) return _parent.RightChild;
@@ -123,9 +123,10 @@ namespace HundoDataStructure.Nodes
         public BinaryTreeNode()
         {
         }
-        public BinaryTreeNode(T data) : this()
+        public BinaryTreeNode(TKey key, TValue value) : this()
         {
-            Value = data;
+            Key = key;
+            Value = value;
         }
 
     }

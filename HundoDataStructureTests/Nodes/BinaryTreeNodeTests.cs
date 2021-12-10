@@ -18,7 +18,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void ConstructorTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.AreEqual(v1, node.Value);
         }
 
@@ -29,9 +29,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void LinkTest()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> nodeRoot = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeRight = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> nodeRoot = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeRight = new BinaryTreeNode<int,int>(v3,v3);
             nodeRoot.LeftChild = nodeLeft;
             nodeRoot.RightChild = nodeRight;
             Assert.IsNotNull(nodeRoot.RightChild);
@@ -44,9 +44,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void LinkTest2()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> nodeRoot = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeRight = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> nodeRoot = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeRight = new BinaryTreeNode<int,int>(v3,v3);
             nodeRoot.LeftChild = nodeLeft;
             nodeRoot.RightChild = nodeRight;
             Assert.AreEqual(v3, nodeRoot.RightChild.Value);
@@ -59,8 +59,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void LinkTest3()
         {
             int v1 = 1, v2 = 2;
-            BinaryTreeNode<int> nodeRoot = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
+            BinaryTreeNode<int,int> nodeRoot = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
             nodeRoot.LeftChild = nodeLeft;
             Assert.AreEqual(v1, nodeLeft.Parent.Value);
         }
@@ -72,7 +72,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void IsRootTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.IsTrue(node.IsRoot);
         }
 
@@ -83,8 +83,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void IsRootTest2()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v1,v1);
             node.LeftChild = nodeLeft;
             Assert.IsFalse(nodeLeft.IsRoot);
         }
@@ -96,7 +96,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void IsLeafTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.IsTrue(node.IsLeaf);
         }
 
@@ -107,8 +107,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void IsLeafTest2()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v1,v1);
             node.LeftChild = nodeLeft;
             Assert.IsTrue(nodeLeft.IsLeaf);
         }
@@ -120,8 +120,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void HasLeftChildTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v1,v1);
             node.LeftChild = nodeLeft;
             Assert.IsTrue(node.HasLeftChild);
         }
@@ -133,8 +133,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void HasLeftChildTest2()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v1,v1);
             node.LeftChild = nodeLeft;
             Assert.IsFalse(nodeLeft.HasLeftChild);
         }
@@ -146,9 +146,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void SibilingTest()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeRight = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeRight = new BinaryTreeNode<int,int>(v3,v3);
             node.LeftChild = nodeLeft;
             node.RightChild = nodeRight;
             Assert.AreEqual(nodeLeft.Sibiling.Value, nodeRight.Value);
@@ -161,7 +161,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void DegreeTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.AreEqual(0, node.Degree);
         }
 
@@ -172,9 +172,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void DegreeTest2()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeRight = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeRight = new BinaryTreeNode<int,int>(v3,v3);
             node.LeftChild = nodeLeft;
             node.RightChild = nodeRight;
             Assert.AreEqual(2, node.Degree);
@@ -187,8 +187,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void DegreeTest3()
         {
             int v1 = 1, v2 = 2;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft = new BinaryTreeNode<int>(v2);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft = new BinaryTreeNode<int,int>(v2,v2);
             node.LeftChild = nodeLeft;
             Assert.AreEqual(1, node.Degree);
         }
@@ -200,7 +200,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void DepthTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.AreEqual(0, node.Depth);
         }
 
@@ -211,8 +211,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void DepthTest2()
         {
             int v1 = 1, v2 = 2;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft1 = new BinaryTreeNode<int>(v2);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft1 = new BinaryTreeNode<int,int>(v2,v2);
             node.LeftChild = nodeLeft1;
             Assert.AreEqual(1, nodeLeft1.Depth);
         }
@@ -224,9 +224,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void DepthTest3()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft1 = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeLeft2 = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft1 = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeLeft2 = new BinaryTreeNode<int,int>(v3,v3);
             node.LeftChild = nodeLeft1;
             nodeLeft1.LeftChild = nodeLeft2;
             Assert.AreEqual(2, nodeLeft2.Depth);
@@ -239,7 +239,7 @@ namespace HundoDataStructure.Nodes.Tests
         public void HeightTest()
         {
             int v1 = 1;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
             Assert.AreEqual(0, node.Height);
         }
 
@@ -250,8 +250,8 @@ namespace HundoDataStructure.Nodes.Tests
         public void Heightest2()
         {
             int v1 = 1, v2 = 2;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft1 = new BinaryTreeNode<int>(v2);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft1 = new BinaryTreeNode<int,int>(v2,v2);
             node.LeftChild = nodeLeft1;
             Assert.AreEqual(1, node.Height);
         }
@@ -263,9 +263,9 @@ namespace HundoDataStructure.Nodes.Tests
         public void HeightTest3()
         {
             int v1 = 1, v2 = 2, v3 = 3;
-            BinaryTreeNode<int> node = new BinaryTreeNode<int>(v1);
-            BinaryTreeNode<int> nodeLeft1 = new BinaryTreeNode<int>(v2);
-            BinaryTreeNode<int> nodeLeft2 = new BinaryTreeNode<int>(v3);
+            BinaryTreeNode<int,int> node = new BinaryTreeNode<int,int>(v1,v1);
+            BinaryTreeNode<int,int> nodeLeft1 = new BinaryTreeNode<int,int>(v2,v2);
+            BinaryTreeNode<int,int> nodeLeft2 = new BinaryTreeNode<int,int>(v3,v3);
             node.LeftChild = nodeLeft1;
             nodeLeft1.LeftChild = nodeLeft2;
             Assert.AreEqual(2, node.Height);
